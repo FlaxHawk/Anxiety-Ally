@@ -36,19 +36,17 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 // Register user
-export const registerUser = async (email: string, password: string, fullName: string) => {
+export const registerUser = async (email: string, password: string) => {
   const response = await api.post('/auth/register', {
     email,
     password,
-    full_name: fullName,
   });
-
   return response.data;
 };
 
 // Get user profile
 export const getUserProfile = async (): Promise<User> => {
-  const response = await api.get('/auth/me');
+  const response = await api.get('/auth/profile');
   return response.data;
 };
 
